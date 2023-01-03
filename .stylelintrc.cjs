@@ -59,6 +59,8 @@ module.exports = {
         ignorePseudoClasses: ['deep'],
       },
     ],
+    // 禁用不可重复声明选择器规则
+    'no-duplicate-selectors': null,
     // 指定样式的排序
     'order/properties-order': [
       'position',

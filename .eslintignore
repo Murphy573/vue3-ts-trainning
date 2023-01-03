@@ -5,3 +5,4 @@ node_modules
 *.ttf
 src/assets
 dist
+*.html

@@ -25,7 +25,7 @@ import HelloWorld from './components/HelloWorld.vue';
   <RouterView />
 </template>
 
-<style lang="less" scoped>
+<style lang="less" scoped type="module">
 header {
   line-height: 1.5;
   max-height: 100vh;

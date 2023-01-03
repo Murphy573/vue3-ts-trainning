@@ -10,14 +10,14 @@ export default defineConfig({
   plugins: [
     vue(),
     VitePluginChecker({
-      typescript: true,
       vueTsc: true,
       eslint: {
         lintCommand:
           'eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore',
       },
       stylelint: {
-        lintCommand: 'stylelint "./**/*.{css,less,vue,html}" --fix',
+        lintCommand:
+          'stylelint "./**/*.{css,less,vue,html}" --fix --cache --mw 0 --allow-empty-input',
       },
     }),
   ],
