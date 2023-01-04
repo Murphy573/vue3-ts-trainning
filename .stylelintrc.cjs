@@ -1,38 +1,52 @@
 // stylelint主页： https://stylelint.io/
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-prettier',
+    'stylelint-config-recommended-less',
+    'stylelint-config-standard-vue',
+  ],
   plugins: ['stylelint-order'],
+  // 不同格式的文件指定自定义语法
+  // overrides: [
+  //   {
+  //     files: ['*.vue', '**/*.vue', '*.html', '**/*.html'],
+  //     extends: ['stylelint-config-html', 'stylelint-config-prettier'],
+  //     rules: {
+  //       // 指定关键帧名称的模式
+  //       'keyframes-name-pattern': null,
+  //       // 禁止未知的伪类选择器
+  //       'selector-pseudo-class-no-unknown': [
+  //         true,
+  //         {
+  //           ignorePseudoClasses: ['deep', 'global'],
+  //         },
+  //       ],
+  //       // 禁止未知的伪元素选择器
+  //       'selector-pseudo-element-no-unknown': [
+  //         true,
+  //         {
+  //           ignorePseudoElements: ['v-deep', 'v-global', 'v-slotted'],
+  //         },
+  //       ],
+  //     },
+  //   },
+  //   {
+  //     files: ['*.less', '**/*.less'],
+  //     customSyntax: 'postcss-less',
+  //     extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
+  //   },
+  // ],
   // 不同格式的文件指定自定义语法
   overrides: [
     {
-      files: ['*.vue', '**/*.vue', '*.html', '**/*.html'],
-      extends: ['stylelint-config-html'],
-      rules: {
-        // 指定关键帧名称的模式
-        'keyframes-name-pattern': null,
-        // 禁止未知的伪类选择器
-        'selector-pseudo-class-no-unknown': [
-          true,
-          {
-            ignorePseudoClasses: ['deep', 'global'],
-          },
-        ],
-        // 禁止未知的伪元素选择器
-        'selector-pseudo-element-no-unknown': [
-          true,
-          {
-            ignorePseudoElements: ['v-deep', 'v-global', 'v-slotted'],
-          },
-        ],
-      },
+      files: ['**/*.(less|css|vue|html)'],
+      customSyntax: 'postcss-less',
     },
     {
-      files: ['*.less', '**/*.less'],
-      customSyntax: 'postcss-less',
-      extends: [
-        'stylelint-config-standard',
-        'stylelint-config-recommended-vue',
-      ],
+      files: ['**/*.(html|vue)'],
+      extends: ['stylelint-config-html'],
+      customSyntax: 'postcss-html',
     },
   ],
   ignoreFiles: [
@@ -61,6 +75,7 @@ module.exports = {
     ],
     // 禁用不可重复声明选择器规则
     'no-duplicate-selectors': null,
+    'string-quotes': null,
     // 指定样式的排序
     'order/properties-order': [
       'position',

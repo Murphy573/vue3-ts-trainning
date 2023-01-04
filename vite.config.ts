@@ -13,12 +13,19 @@ export default defineConfig({
       vueTsc: true,
       eslint: {
         lintCommand:
-          'eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore',
+          'eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore',
       },
       stylelint: {
         lintCommand:
-          'stylelint "./**/*.{css,less,vue,html}" --fix --cache --mw 0 --allow-empty-input',
+          'stylelint "./**/*.{css,less,vue,html}" --allow-empty-input',
+        dev: {
+          overrideConfig: {
+            files: ['./**/*.{css,less,vue,html}'],
+            allowEmptyInput: true,
+          },
+        },
       },
+      enableBuild: false,
     }),
   ],
   resolve: {

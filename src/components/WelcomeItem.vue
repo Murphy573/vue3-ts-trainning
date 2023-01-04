@@ -29,7 +29,6 @@ i {
   place-content: center;
   width: 32px;
   height: 32px;
-
   color: var(--color-text);
 }
 
@@ -57,7 +56,7 @@ h3 {
     border-radius: 8px;
   }
 
-  .item:before {
+  .item::before {
     position: absolute;
     bottom: calc(50% + 25px);
     left: 0;
@@ -66,7 +65,7 @@ h3 {
     border-left: 1px solid var(--color-border);
   }
 
-  .item:after {
+  .item::after {
     position: absolute;
     top: calc(50% + 25px);
     left: 0;
@@ -75,11 +74,11 @@ h3 {
     border-left: 1px solid var(--color-border);
   }
 
-  .item:first-of-type:before {
+  .item:first-of-type::before {
     display: none;
   }
 
-  .item:last-of-type:after {
+  .item:last-of-type::after {
     display: none;
   }
 }
