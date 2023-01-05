@@ -1,9 +1,10 @@
 <template>
   <ElScrollbar>
-    <ElMenu :default-openeds="['1', '3']">
+    <ElMenu :default-openeds="['1', '3']" :collapse="isCollapse">
       <ElSubMenu index="1">
         <template #title>
-          <ElIcon><message /></ElIcon>Navigator One
+          <ElIcon><House /></ElIcon>
+          vue3基本语法
         </template>
         <ElMenuItemGroup>
           <template #title>Group 1</template>
@@ -20,7 +21,7 @@
       </ElSubMenu>
       <ElSubMenu index="2">
         <template #title>
-          <el-icon><icon-menu /></el-icon>Navigator Two
+          <el-icon><Menu /></el-icon>Navigator Two
         </template>
         <ElMenuItemGroup>
           <template #title>Group 1</template>
@@ -56,6 +57,10 @@
   </ElScrollbar>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+defineProps({
+  isCollapse: Boolean,
+});
+</script>
 
 <style lang="less" scoped></style>
