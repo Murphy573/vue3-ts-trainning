@@ -1,4 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router';
+import Syntax from './Syntax';
 
 export default [
   {
@@ -10,5 +11,6 @@ export default [
     name: 'layout',
     path: '/layout',
     component: () => import('@/views/Layout/LayoutView.vue'),
+    children: [...Syntax],
   },
 ] as RouteRecordRaw[];

@@ -1,14 +1,16 @@
 <template>
   <ElScrollbar>
-    <ElMenu :default-openeds="['1', '3']" :collapse="isCollapse">
+    <ElMenu :default-openeds="['1']" :collapse="isCollapse">
       <ElSubMenu index="1">
         <template #title>
           <ElIcon><House /></ElIcon>
           vue3基本语法
         </template>
         <ElMenuItemGroup>
-          <template #title>Group 1</template>
-          <ElMenuItem index="1-1">Option 1</ElMenuItem>
+          <template #title>模版语法</template>
+          <ElMenuItem index="1-1" @click="jumpTo('inputAndOutput')">
+            输入输出属性
+          </ElMenuItem>
           <ElMenuItem index="1-2">Option 2</ElMenuItem>
         </ElMenuItemGroup>
         <ElMenuItemGroup title="Group 2">
@@ -58,9 +60,16 @@
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
 defineProps({
   isCollapse: Boolean,
 });
+
+const jumpTo = (routerName: string) => {
+  router.push({ name: routerName });
+};
 </script>
 
 <style lang="less" scoped></style>
